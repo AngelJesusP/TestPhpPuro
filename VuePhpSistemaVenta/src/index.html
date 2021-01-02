@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina principal | Sistema de venta</title>
+    <script src="Public/Js/sweetalert2@10.js"></script>
+    <link rel="stylesheet" href="Public/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css">
+    <link rel="icon" href="Public/img/icon/venta.png" type = "image/x-icon">
+</head>
+<body>
+
+    <div id="appPrincipal">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand text-white" href="#">MENU PRINCIPAL DEL SISTEMA DE VENTAS </a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="&#128270; Realizar busqueda" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+        <div v-if="this.$route.path === '/'">
+            <div class="d-flex">
+                <div class="col-sm-4">
+                    <app-opciones></app-opciones>
+                </div>
+                <div class="col-sm-8">
+                    <app-registro></app-registro>
+                </div>
+            </div>
+        </div>
+        <div v-else-if="this.$route.path === '/generarVenta'">
+            <router-view></router-view>
+        </div>
+        <div v-else-if="this.$route.path === '/verFacturas'">
+            <router-view></router-view>
+        </div>
+        <div v-else-if="this.$route.path === '/HistorialVenta'">
+            <router-view></router-view>
+        </div>
+
+    </div>
+
+    <!-- Libreria de Vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- Libreia de Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js "></script>
+    <!-- Libreria de Roter para navegar entre los diferentes componentes -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js "></script>
+    <!-- Libreria de CharJs para graficar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+    <script type="module" src="Public/Js/Vuejs/app.js"></script>
+
+
+
+</body>
+</html>
